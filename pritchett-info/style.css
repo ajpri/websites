@@ -18,7 +18,27 @@ a:hover { text-decoration-thickness: 2px; }
 a:focus-visible { outline: 2px solid #234f6d; outline-offset: 5px; }
 .role, .job-meta, footer { color: #555; }
 .introduction { border-top: 1px solid #d5d5d5; margin-top: 2rem; padding-top: 2rem; display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 2rem; align-items: start; }
-.headshot-placeholder { width: 8rem; aspect-ratio: 4 / 5; border: 1px solid #b5b5b5; display: grid; place-items: center; color: #555; font-size: 0.85rem; }
+.headshot {
+  width: 8rem;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border: 1px solid #b5b5b5;
+}
+
+@media (max-width: 600px) {
+  .headshot {
+    width: 8rem;
+    max-width: 100%;
+  }
+}
+
+@media print {
+  .headshot {
+    display: none;
+  }
+}
 nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-top: 1.1rem; }
 section { border-top: 1px solid #d5d5d5; margin-top: 2.5rem; padding-top: 2rem; }
 .principle { border-top: 1px solid #d5d5d5; margin: 2.5rem 0 0; padding-top: 2rem; }
@@ -43,7 +63,7 @@ footer { border-top: 1px solid #d5d5d5; margin-top: 2.5rem; padding-top: 1.25rem
 @media print {
   :root { color: #000; font-size: 10pt; line-height: 1.4; }
   body { max-width: none; padding: 0; }
-  nav, .skip-link, .headshot-placeholder { display: none; }
+  nav, .skip-link { display: none; }
   .introduction { display: block; }
   section, .principle { margin-top: 1.5rem; padding-top: 1rem; }
   a { color: inherit; text-decoration: none; }
